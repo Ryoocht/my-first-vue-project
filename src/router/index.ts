@@ -1,20 +1,26 @@
 /* DEFINE OUR ROUTING RULES */
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
+import NotesView from '@/views/NotesView.vue'
+import QuizesView from '@/views/QuizesView.vue'
+import QuizView from '@/views/QuizView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'notes',
+      path: '/notes',
+      component: NotesView
     },
     {
-      path: '/about',
-      name: 'about',
-      component: AboutView
+      name: 'quizes',
+      path: '/',
+      component: QuizesView
+    },
+    {
+      name: 'quiz',
+      path: '/quizes/:id',
+      component: QuizView
     }
   ]
 })
