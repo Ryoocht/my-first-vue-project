@@ -7,7 +7,7 @@ type Option = {
   isCorrect: boolean
 }
 
-type Question = {
+export type Question = {
   id: number
   text: string
   options: Option[]
