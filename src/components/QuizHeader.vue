@@ -1,13 +1,14 @@
 <script setup lang="ts">
-const { questionStatus } = defineProps<{
+const { questionStatus, barPercentage } = defineProps<{
   questionStatus: string
+  barPercentage: number
 }>()
 </script>
 <template>
   <header>
-    <h4>Question {{questionStatus}}</h4>
+    <h4>Question {{ questionStatus }}</h4>
     <div class="bar">
-      <div class="completion"></div>
+      <div class="completion" :style="{ width: `${barPercentage}%` }"></div>
     </div>
   </header>
 </template>
@@ -29,7 +30,6 @@ header h4 {
 
 .completion {
   height: 100%;
-  width: 0%;
   background-color: bisque;
 }
 </style>

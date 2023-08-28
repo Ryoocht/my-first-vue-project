@@ -4,6 +4,10 @@ import type { Question } from '@/data/quizes'
 const { question } = defineProps<{
   question?: Question
 }>()
+
+const emit = defineEmits<{
+  selectOption: [isCorrect: boolean]
+}>()
 </script>
 
 <template>
@@ -11,7 +15,12 @@ const { question } = defineProps<{
     <h1 class="question">{{ question?.text }}</h1>
   </div>
   <div class="options-container">
-    <div v-for="option in question?.options" :key="option.id" class="option">
+    <div
+      v-for="option in question?.options"
+      :key="option.id"
+      class="option"
+      @click="emit('selectOption', option.isCorrect)"
+    >
       <p class="option-label">{{ option.label }}</p>
       <div class="option-value">
         <p>{{ option.text }}</p>
